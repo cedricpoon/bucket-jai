@@ -1,0 +1,23 @@
+[package]
+name = "bucket-jai"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4"
+actix-web-lab = "0.16"
+actix-cors = "0.6"
+
+env_logger = "0.9"
+log = "0.4.17"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+juniper = "0.15.10"
+
+sha2 = "0.10.2"
+base16ct = { version = "0.1.1",  features = ["alloc"] }
+
+redis = "0.21.5"

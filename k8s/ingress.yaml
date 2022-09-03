@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bucket-jai
+spec:
+  rules:
+    - host: bucket-jai.kubernetes.docker.internal
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: bucket-jai 
+                port:
+                  number: 8080

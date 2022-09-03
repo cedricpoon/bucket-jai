@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bucket-jai
+spec:
+  selector:
+    matchLabels:
+      app: bucket-jai
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bucket-jai
+    spec:
+      containers:
+      - name: bucket-jai
+        image: docker.io/cedricpoon/bucket-jai:alpha
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: REDIS_ADDR
+          value: "redis://redis-cluster.default.svc.cluster.local"
+        - name: SERVER_ADDR
+          value: "0.0.0.0"
+        - name: SERVER_PORT
+          value: "8080"
